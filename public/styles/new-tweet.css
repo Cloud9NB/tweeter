@@ -1,0 +1,36 @@
+.bottom-part {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  
+}
+
+.button {
+  background-color: #4056A1;
+  font-family: "Bungee";
+  color: aliceblue;
+}
+
+form {
+  font-family: defined;
+  display: flex;
+  flex-direction: column;
+}
+
+output {
+  font-family: "Bungee";
+}
+
+textarea {
+  background-color: transparent;
+  border-bottom: solid #000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  resize: none;
+}
+
+.button {
+  margin-top: 5px;
+  margin-bottom: 5px
+}
