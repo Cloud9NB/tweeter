@@ -37,8 +37,8 @@ const renderTweet = function (data) {
 };
 
 const createTweetElement = function (data) {
-  const $tweet = 
-  `<article class="tweet">
+  const $tweet =
+    `<article class="tweet">
   <header>
     <div class="user">
       <p><img src="${data.user.avatars}" alt="">${data.user.name}</p>
@@ -60,5 +60,17 @@ const createTweetElement = function (data) {
 };
 
 $(document).ready(function () {
+  $('form.submit').on('submit', function (event) {
+    console.log('Submitting tweet.');
+    event.preventDefault();
+    $.ajax('/tweets', {
+      method: 'POST',
+      data: $(this).serialize()
+    })
+      .then(function (tweet) {
+        console.log('Tweet sent.');
+        $('#tweet-text').val('')
+      })
+  });
   renderTweet(data);
 }); 
