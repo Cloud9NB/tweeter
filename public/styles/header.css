@@ -7,6 +7,5 @@ header.header {
   flex-direction: column;
   background-image: url(header_background_1.jpg);
   background-color: black;
-  margin-top: 5em;
   color: aliceblue;
 }

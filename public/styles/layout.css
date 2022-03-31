@@ -34,3 +34,25 @@ main {
   margin: 0 auto;
   background-color: #f4f1ec;
 }
+
+
+@media (min-width: 1024px) {
+  body {
+      display: flex;
+      flex-direction: column;
+  }
+  .container {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 2em;
+  }
+  .header {
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 1em;
+  }
+  .header-main {
+  display: flex;
+  flex-direction: row;
+  }
+}
