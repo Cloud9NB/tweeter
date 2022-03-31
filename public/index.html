@@ -65,7 +65,9 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form class="submit" action="/tweets/" method="POST">
+        
         <label for="tweet-text">What are you humming about?</label>
+        <div class='errors' style="display: none;"></div>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="bottom-part">
           <button class="button" type="submit">Tweet</button>

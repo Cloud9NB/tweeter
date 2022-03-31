@@ -34,3 +34,10 @@ textarea {
   margin-top: 5px;
   margin-bottom: 5px
 }
+
+.errors {
+  display: none;
+  text-align: center;
+  color: red;
+  font-weight: 400;
+}

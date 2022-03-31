@@ -13,18 +13,24 @@ const renderTweets = function (data) {
   }
 };
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function (data) {
   const $tweet =
     `<article class="tweet">
   <header>
     <div class="user">
-      <p><img src="${data.user.avatars}" alt="">${data.user.name}</p>
+      <p><img src="${escape(data.user.avatars)}" alt="">${escape(data.user.name)}</p>
     </div>
-    <h4>${data.user.handle}</h4>
+    <h4>${escape(data.user.handle)}</h4>
   </header>
-  <p>${data.content.text}</p>
+  <p>${escape(data.content.text)}</p>
   <footer>
-    <span>${timeago.format(data.created_at)}</span>
+    <span>${escape(timeago.format(data.created_at))}</span>
     <div>
       <i class="fas fa-flag"></i>
       <i class="fas fa-retweet"></i>
@@ -48,14 +54,14 @@ const loadTweets = function () {
 $(document).ready(function () {
   $('form.submit').on('submit', function (event) {
     event.preventDefault();
-    
     if ($('#tweet-text').val() === null || $('#tweet-text').val() === '') {
-      return alert('You cannot post an empty tweet');
+      return $('.errors').text('Please enter a valid tweet.').slideDown();
     }
     if ($('#tweet-text').val().length > 140) {
-      return alert("Your tweet exceeds the maximum characters");
-    }
 
+      return $('.errors').text('Your Tweet exceeds the maximum characters').slideDown();
+    }
+    $('.errors').hide()
     console.log('Submitting tweet.');
     $.ajax('/tweets', {
       method: 'POST',
