@@ -10,5 +10,5 @@ $(document).ready(function() {
     } else {
       counterLog.css({"color": "red"});
     }
-  })
-})
+  });
+});
