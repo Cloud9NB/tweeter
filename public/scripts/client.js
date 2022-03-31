@@ -5,9 +5,11 @@
  */
 
 const renderTweets = function (data) {
+  const container = $('#tweets-container');
+  container.empty();
   for (const tweet of data) {
-    const exampleTweets = createTweetElement(tweet);
-    $('#tweets-container').append(exampleTweets);
+    const $exampleTweets = createTweetElement(tweet);
+    container.prepend($exampleTweets);
   }
 };
 
@@ -60,8 +62,9 @@ $(document).ready(function () {
       data: $(this).serialize()
     })
       .then(function (tweet) {
-        console.log('Tweet sent.');
         $('#tweet-text').val('')
+        loadTweets();
+        console.log('Tweet sent.');
       })
   });
   loadTweets();
