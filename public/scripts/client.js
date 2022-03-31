@@ -45,8 +45,16 @@ const loadTweets = function () {
 
 $(document).ready(function () {
   $('form.submit').on('submit', function (event) {
-    console.log('Submitting tweet.');
     event.preventDefault();
+    
+    if ($('#tweet-text').val() === null || $('#tweet-text').val() === '') {
+      return alert('You cannot post an empty tweet');
+    }
+    if ($('#tweet-text').val().length > 140) {
+      return alert("Your tweet exceeds the maximum characters");
+    }
+
+    console.log('Submitting tweet.');
     $.ajax('/tweets', {
       method: 'POST',
       data: $(this).serialize()
