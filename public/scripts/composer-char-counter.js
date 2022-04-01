@@ -5,7 +5,7 @@ $(document).ready(function() {
     const keyCount = $(this).val().length;
     const counterLog = $(this).parent().find(".counter");
     counterLog.val(140 - keyCount);
-    if (keyCount >= 0 && keyCount < 140) {
+    if (keyCount >= 0 && keyCount < 141) {
       counterLog.css({"color": "#545149"});
     } else {
       counterLog.css({"color": "red"});

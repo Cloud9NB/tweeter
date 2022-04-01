@@ -45,6 +45,7 @@ article.tweet > p {
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: 600;
+  word-break: break-word;
 }
 
 article.tweet > footer > div > i {
